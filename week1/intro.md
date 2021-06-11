@@ -1,4 +1,5 @@
-# welcome to week 1 with R! our outlined topics for today are as follows: 
+# welcome to week 1 with R! 
+### our outlined topics for today are as follows: 
 1. general intro: what is an R script?
 2. how to manipulate data  
 3. explore the summerR repo on github 
