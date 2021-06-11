@@ -1,0 +1,27 @@
+name,breed,weight_lb,taillength_cm,preferred_treat,age_yr,state,owner,exercise 
+josh,great dane,120,40.5,milkbone,3,NY,male,walk
+spike,husky,100,62.2,milkbone,5,NJ,male,walk
+butter,dachshund,10,6,rawhide,2,MT,female,walk
+mike,maltese,12,14.9,chicken nugget,12,DC,male,fetch
+meatloaf,bulldog,40,3.3,chicken nugget,19,DC,male,fetch
+fluffy,samoyed,55,60.1,rawhide,5,MD,male,walk
+zoe,yellow lab,57,76.2,chicken nugget,7,NH,female,swim
+charli,yellow lab,63,70.9,chicken nugget,9,MA,female,swim
+maggie,yellow lab,49,72.3,chicken nugget,10,ME,female,swim
+ernesto,pug,23,9.9,rawhide,3,VA,female,walk
+reggi,pug,32,7.1,chicken nugget,1,WV,female,walk
+blimp,basset hound,39,32.2,milkbone,1,VA,male,swim
+tony,bernese mountain dog,112,80.9,rawhide,5,DC,male,walk
+lavender,poodle,65,54.6,milkbone,6,NY,female,walk
+spot,shiba,26,33.4,milkbone,8,NY,female,fetch
+dot,dalmation,78,77.2,chicken nugget,13,CA,male,walk
+karen,chihuahua ,7,13.4,chicken nugget,15,TX,female,walk
+bailey,bernese mountain dog,130,56,rawhide,11,FL,female,walk
+indy,labradoodle,81,67.8,milkbone,7,SC,female,walk
+aang,labradoodle,71,77,chicken nugget,16,NC,male,fetch
+beaty,husky,92,51.1,milkbone,12,NJ,male,swim
+fred,husky,79,63.4,rawhide,1,SD,female,walk
+tucker,bernese mountain dog,101,56.9,rawhide,4,ND,male,walk
+amelia,bulldog,33,23.8,milkbone,18,WY,female,swim
+hermione,yellow lab,50,66.6,chicken nugget,2,TX,male,swim
+matilda,maltese,13,10.2,chicken nugget,2,CA,male,swim
