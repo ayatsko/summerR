@@ -38,7 +38,7 @@ c <- c("cat")
 # is not well defined and we also can't learn much from it. but in our data, it can be useful
 # to have characters, especially if we are using descriptive sample IDs (i.e., sample1)
 
-# R is much more than an dinky calculator. you can write functions, assign variables to 
+# R is much more than a fancy calculator. you can write functions, assign variables to 
 # insert into said functions, input data, build graphs, do statistical analyses, so on and 
 # so forth. there are a million applications and the more you work with R, the more you 
 # realize how much there is to learn!
@@ -57,6 +57,7 @@ c <- c("cat")
 # get you set up, as follows: 
 
 setwd("/Users/abbeyyatsko/Desktop/week1")
+
 # make sure you put your working directory in quotes such that R recognizes it! 
 # this basically tells R that this is where you want it to look to retrieve data or where
 # to place and locally store output data / figures
@@ -103,7 +104,7 @@ head(doggies)
 tail(doggies)
 colnames(doggies)
 length(doggies)
-length(doggies$age_yr)
+length(doggies$owner)
 
 # you can also use indexing to identify a specific value (or range of values) within your 
 # data frame: 
@@ -142,13 +143,13 @@ str(doggies)
 
 # we can also add or rename columns in our dataframe. to rename a column: 
 colnames(doggies)[5] <-"treat"
-doggies
+View(doggies)
 
 # to add a column: 
 doggies$species <- "Canis lupus familiaris"
 View(doggies)
 
-# we can also take a peak at what this data looks by using graphical visualization
+# we can also take a peek at what this data looks by using graphical visualization
 # run these lines to get a deeper look into what the data shapes up to be 
 
 # distribution of dog ages 
