@@ -41,7 +41,7 @@ Use:
 </details>
 ```
 ---
-![Here is a picture](cassuary.jpg)
+![Here is a picture](/week2/cassuary.JPG)
 <br>
 
 2. Integrating R with github
