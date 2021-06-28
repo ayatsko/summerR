@@ -19,10 +19,9 @@ Michaela is adding a line!
 Becca is adding another line
 Julia is adding a line
 
-<<<<<<< HEAD
+
 Nora added a line, too.
-=======
->>>>>>> b5546046547a5935dc0b2549e61ab0f61803edbb
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
