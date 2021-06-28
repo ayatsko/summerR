@@ -17,6 +17,7 @@ Michaela is writing a line.
 Michaela is adding a line!
 
 Becca is adding another line
+Julia is adding a line
 
 <<<<<<< HEAD
 Nora added a line, too.
