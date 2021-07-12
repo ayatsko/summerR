@@ -44,5 +44,64 @@ cars$cyl <- as.factor(cars$cyl)
 # [, 2] cyl Number of cylinders
 # [, 3] wt Weight (lb/1000)
 
+# PLOTS WITH MTCARS ----
+# https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/mtcars.html
+# plotting in ggplot can be thought of as a piece-by-piece process. you oftentimes start off with the 
+# same format... 
+# ggplot(data = , aes(x = , y = ))+
+#   (whatever graph type you are wanting)
 
+# an example probably serves better! let's make a basic scatter plot: 
+ggplot(data = cars, aes(x = wt, y = mpg)) + 
+  geom_point()
+
+# change the point size, and shape
+ggplot(cars, aes(x = wt, y = mpg)) +
+  geom_point(size = 2, shape = 23)
+
+# change the color and the point by the levels of cyl variable
+ggplot(cars, aes(x = wt, y = mpg)) + 
+  geom_point(aes(color = cyl, shape = cyl)) 
+
+# change color manually
+ggplot(cars, aes(x = wt, y = mpg)) + 
+  geom_point(aes(color = cyl, shape = cyl)) +
+  scale_color_manual(values = c("#999999", "#E69F00", "#56B4E9"))+
+  theme_minimal()
+
+# add regression line for each level of the cyl variable 
+ggplot(cars, aes(x = wt, y = mpg)) + 
+  geom_point(aes(color=cyl, shape=cyl)) + 
+  geom_smooth(aes(color=cyl, shape=cyl), 
+              method=lm, se=FALSE, fullrange=TRUE)
+
+# add a bit more info to the plot - basic scatter plot like above, but now points are the 'sample' names 
+ggplot(data = cars, aes(x = wt, y = mpg)) + 
+  geom_text(aes(label = rownames(mtcars)))
+
+# PLOTS WITH TOOTHGROWTH 
+# https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html
+tooth <- ToothGrowth
+str(tooth)
+tooth$dose <- as.factor(tooth$dose)
+
+# making a 'base' graph that we can build off of 
+e <- ggplot(tooth, aes(x = dose, y = len))
+
+# default plot
+e + geom_boxplot()
+# notched box plot
+e + geom_boxplot(notch = TRUE)
+# color by group (dose)
+e + geom_boxplot(aes(color = dose))
+# change fill color by group (dose)
+e + geom_boxplot(aes(fill = dose))
+
+# box plot with multiple groups
+ggplot(tooth, aes(x=dose, y=len, fill=supp)) +
+  geom_boxplot()
+
+# look at boxplot with individual points overlaid (dotplot)
+e + geom_boxplot() + 
+  geom_dotplot(binaxis = "y", stackdir = "center") 
 
