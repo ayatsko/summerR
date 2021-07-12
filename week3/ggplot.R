@@ -79,7 +79,7 @@ ggplot(cars, aes(x = wt, y = mpg)) +
 ggplot(data = cars, aes(x = wt, y = mpg)) + 
   geom_text(aes(label = rownames(mtcars)))
 
-# PLOTS WITH TOOTHGROWTH 
+# PLOTS WITH TOOTHGROWTH ----
 # https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/ToothGrowth.html
 tooth <- ToothGrowth
 str(tooth)
@@ -152,19 +152,21 @@ f <- ggplot(df.summary, aes(x = dose, y = len,
 f + geom_bar(aes(color = dose), stat = "identity", fill ="white") + 
   geom_errorbar(aes(color = dose), width = 0.2)
 
+# MAKING GRAPHS PRETTY ---- 
+ggplot(cars, aes(x = hp, y = mpg, color = cyl)) + 
+  geom_point(size = 2) + 
+  geom_smooth(method = lm, color = 'red4') + 
+  labs(title = 'Relationship between Horsepower and Miles per gallon') + 
+  xlab('Horsepower') + 
+  ylab('Miles per Gallon') +
+  theme_bw()+
+  labs(color = "Number of cylinders")+
+  theme(legend.position="top")
 
-# MAP APPLICATION ---- 
-# first prepare the data
-# https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html
-crimes <- data.frame(state = tolower(rownames(USArrests)), 
-                     USArrests)
-install.packages("reshape2")
-library(reshape2) # for melt
-crimesm <- melt(crimes, id = 1)
-# Get map data
-require(maps) 
-map_data <- map_data("state")
-# Plot the map with Murder data
-ggplot(crimes, aes(map_id = state)) + 
-  geom_map(aes(fill = Murder), map = map_data) + 
-  expand_limits(x = map_data$long, y = map_data$lat)
+# EXERCISE: MYOG (make your own graph) ----
+# if there is time, explore a dataframe we have already used (mtcars, ToothGrowth, etc.) and
+# find a way to visualize some of the information within! 
+
+# also if anyone has a ggplot skill to show and tell, we can do that! (a figure you've made 
+# in the past, a trick you've learned along the way, a correction for something I explained
+# wrong, anything and all are welcome!)
