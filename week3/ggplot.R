@@ -105,3 +105,66 @@ ggplot(tooth, aes(x=dose, y=len, fill=supp)) +
 e + geom_boxplot() + 
   geom_dotplot(binaxis = "y", stackdir = "center") 
 
+# lets do some bar charts too, just to see what those look like 
+# we start by creating a simple bar plot (named f) using the df data set:
+f <- ggplot(tooth, aes(x = dose, y = len))
+
+# basic bar plot
+f + geom_bar(stat = "identity")
+
+# change fill color and add labels
+f + geom_bar(stat="identity", fill="steelblue")+
+  theme_minimal()
+
+# Change bar plot fill colors by groups
+f + geom_bar(aes(fill = dose), stat="identity")
+
+# for a bar plot with multiple groups: make a new base graph: 
+g <- ggplot(data=tooth, aes(x=dose, y=len, fill=supp)) 
+
+# stacked bar plot
+g + geom_bar(stat = "identity")
+
+# use position=position_dodge()
+g + geom_bar(stat="identity", position=position_dodge())
+
+# add some error bars (this is important for ecology!)
+# first we have to define what exactly the error bars are, and that requires us adding sd to the 
+# dataframe (so that we have values for how to calculate the actual error)
+
+# install.packages("dplyr")
+library(dplyr)
+df.summary <- tooth %>%
+  group_by(dose) %>%
+  summarise(
+    sd = sd(len, na.rm = TRUE),
+    len = mean(len)
+  )
+df.summary
+str(df.summary)
+
+# now we will use this new dataframe (which includes sd, a summary stat we need in order to produce 
+# error bars) to generate a boxplot
+f <- ggplot(df.summary, aes(x = dose, y = len, 
+                     ymin = len-sd, ymax = len+sd))
+
+# then combine with bar plot, color by groups
+f + geom_bar(aes(color = dose), stat = "identity", fill ="white") + 
+  geom_errorbar(aes(color = dose), width = 0.2)
+
+
+# MAP APPLICATION ---- 
+# first prepare the data
+# https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/USArrests.html
+crimes <- data.frame(state = tolower(rownames(USArrests)), 
+                     USArrests)
+install.packages("reshape2")
+library(reshape2) # for melt
+crimesm <- melt(crimes, id = 1)
+# Get map data
+require(maps) 
+map_data <- map_data("state")
+# Plot the map with Murder data
+ggplot(crimes, aes(map_id = state)) + 
+  geom_map(aes(fill = Murder), map = map_data) + 
+  expand_limits(x = map_data$long, y = map_data$lat)
